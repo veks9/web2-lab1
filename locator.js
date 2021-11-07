@@ -51,6 +51,7 @@ app.post("/refreshUsers", (req, res) => {
   for(const loggedUser of loggedUsers){
     if(loggedUser.email === user.email) {
       exists = true;
+      loggedUser.location = user.location
     }
   }   
   
@@ -60,6 +61,7 @@ app.post("/refreshUsers", (req, res) => {
     } 
     loggedUsers.push(user);
   }
+  
   res.status(200).send();
 });
 
