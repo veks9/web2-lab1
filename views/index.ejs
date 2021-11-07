@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>Homepage</title>
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+                integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+                crossorigin="" />
+            
+            <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+            <style> #osm-map {
+                height: 500px;
+              }
+            </style>
+        </head>
+        
+        <body>
+            <h1><a href="/">Homepage</a></h1>
+            <nav>
+                <ul>
+                    <% if(!user.isAuthenticated) { %>
+                    <li><a href="/sign-in">Login</a></li>
+                    <% } else { %>
+                    <li><a href="/logout">Logout</a></li>
+                    <% } %>
+                </ul>
+            </nav>
+
+            <% if(user.isAuthenticated) { %>
+                <h2>Hello <%= user.name %></h2>
+            <% } %>
+            <p id="status"></p>
+            <p id = "map-link"></p>
+            <div id="osm-map"></div>
+            <script>let user = <%- JSON.stringify(user) %></script>
+            <script src="../scripts/geo.js"></script>
+    </body>
+</html>
