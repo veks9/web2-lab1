@@ -15,7 +15,7 @@ function geoFindMe(loggedUsers) {
     const longitude = position.coords.longitude;
     const mapZoom = 14
 
-    status.textContent = '';
+    status.textContent = 'Your location:';
     mapLink.textContent = `Latitude: ${latitude}°, Longitude: ${longitude}°`;
     var target = L.latLng(latitude, longitude);
     if(user.isAuthenticated){
