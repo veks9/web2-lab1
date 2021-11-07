@@ -13,7 +13,7 @@ function geoFindMe(loggedUsers) {
   function success(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
-    const mapZoom = 18
+    const mapZoom = 14
 
     status.textContent = '';
     mapLink.textContent = `Latitude: ${latitude}°, Longitude: ${longitude}°`;
