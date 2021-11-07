@@ -22,7 +22,6 @@ function geoFindMe(loggedUsers) {
       postData('/refreshUsers', { latitude, longitude, user }).then(() => {
         getData('/loggedUsers').then(data => {
           loggedUsers = data.loggedUsers
-          console.log(loggedUsers);
           for(const user of loggedUsers){
             const marker = L.marker([user.location.latitude, user.location.longitude]).addTo(map);
             marker.bindPopup(`Name: ${user.name}<br>Email: ${user.email}<br>Timestamp: ${user.timestamp}`);
